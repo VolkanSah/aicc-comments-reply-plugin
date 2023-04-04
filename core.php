@@ -6,7 +6,7 @@ Version: 1.0
 Author: Volkan Kücükbudak
 */
 
-// Plugin-Optionen und -Einstellungen
+// Plugin Options and Settings
 function wpwm_openai_settings_init() {
     register_setting('wpwm_openai_settings', 'openai_api_key');
 }
@@ -45,20 +45,20 @@ function wpwm_openai_settings_page() {
     <?php
 }
 
-// Fügt Schaltfläche zum Kommentarzeilen-Actions hinzu
+// Adds button to comment line actions
 function wpwm_openai_add_button_to_comment_row_actions($actions, $comment) {
     $actions['wpwm_openai_reply'] = '<a href="#" class="openai-reply">Reply with WPWM OpenAI</a>';
     return $actions;
 }
 add_filter('comment_row_actions', 'wpwm_openai_add_button_to_comment_row_actions',
 
-// Fügt JavaScript-Code hinzu, um WPWM OpenAI-Antworten zu verarbeiten
+// Adds JavaScript code to process OpenAI responses
 function wpwm_openai_add_js_to_comment_page() {
     $openai_api_key = get_option('openai_api_key');
     ?>
     <script>
         jQuery(document).ready(function ($) {
-            // Fügt Klick-Handler zur Schaltfläche "Reply with WPWM OpenAI" hinzu
+            // Adds click handlers to "Reply with WPWM OpenAI" button
             $('.openai-reply').click(function () {
                 var commentId = $(this).closest('tr').attr('id').replace('comment-', '');
                 $('#comment-' + commentId + ' .row-actions .reply button').click();
