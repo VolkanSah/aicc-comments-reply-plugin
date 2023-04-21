@@ -64,7 +64,7 @@ function wpwm_openai_settings_page() {
     <ul>
         <li>Model: text-davinci-003</li>
         <li>Temperature: 0.9</li>
-        <li>Max Tokens: 100</li>
+        <li>Max Tokens: 1000</li>
         <li>Top P: 1</li>
         <li>Frequency Penalty: 0.0</li>
         <li>Presence Penalty: 0.0</li>
