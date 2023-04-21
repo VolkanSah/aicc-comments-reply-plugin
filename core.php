@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WPWM OpenAI (ChatGPT) Comments Reply
-Description: This is a WordPress plugin that uses OpenAI's ChatGPT to automatically reply to comments. It helps blog administrators save time and effort in responding to comments by providing AI-generated replies based on the content of the comment
+Description: Ein Plugin, das OpenAI's ChatGPT verwendet, um automatisch auf Kommentare zu antworten.
 Version: 1.0
 Author: Volkan Kücükbudak
 */
@@ -42,6 +42,38 @@ function wpwm_openai_settings_page() {
     ?>
     <div class="wrap">
         <h1>WPWM OpenAI Comment Reply Settings</h1>
+        <div class="wpwm-openai-info">
+    <h2>About WPWM OpenAI Comment Reply Plugin</h2>
+    <p>This plugin uses OpenAI's ChatGPT to automatically reply to comments on your WordPress website. It leverages AI technology to generate relevant and helpful responses to your visitors' comments.</p>
+    
+    <h3>How to use the plugin:</h3>
+    <ol>
+        <li>Enter your OpenAI API key in the "OpenAI API Key" field and save the settings.</li>
+        <li>Go to the comments management in your WordPress admin area.</li>
+        <li>In the comment list, you'll see the option "Reply with WPWM OpenAI" under each comment. Click on this option to generate an AI-generated response to the comment.</li>
+    </ol>
+
+    <h3>Recommended settings:</h3>
+    <p>These are the recommended settings for the plugin:</p>
+    <ul>
+        <li>Model: text-davinci-003</li>
+        <li>Temperature: 0.9</li>
+        <li>Max Tokens: 100</li>
+        <li>Top P: 1</li>
+        <li>Frequency Penalty: 0.0</li>
+        <li>Presence Penalty: 0.0</li>
+    </ul>
+    <p>These settings have been tested to provide good results with the plugin. However, feel free to adjust them according to your needs and preferences.</p>
+</div>
+
+
+
+
+
+
+
+
+
         <form method="post" action="options.php">
             <?php settings_fields('wpwm_openai_settings'); ?>
             <?php do_settings_sections('wpwm_openai_settings'); ?>
@@ -159,4 +191,3 @@ function wpwm_openai_add_js_to_comment_page() {
     <?php
 }
 add_action('admin_footer-edit-comments.php', 'wpwm_openai_add_js_to_comment_page');
-                
