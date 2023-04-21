@@ -1,5 +1,5 @@
 # WPWMs ChatGPT Comments Reply 
-###### WordPress Plugins by Volkan Sah
+###### WordPress Plugins by Volkan Sah - Simple codings
 ####  will stay always for free !
 
 ## Description
