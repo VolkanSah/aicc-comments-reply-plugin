@@ -16,7 +16,7 @@ WPWM OpenAI (ChatGPT) Comments Reply is a plugin that uses OpenAI's ChatGPT to a
 The plugin allows you to configure the following settings:
 
 - OpenAI API Key: Enter your OpenAI API key here to use the plugin.
-- Model: Choose the OpenAI GPT-3 model to use for generating replies. The default model is 'text-davinci-003'.
+- Model: The default model is 'text-davinci-003' (best)
 - Temperature: Set the temperature parameter to control the creativity of the generated replies. The default temperature is 0.9.
 - Max Tokens: Set the maximum number of tokens to generate for the reply. The default value is 100.
 - Top P: Set the top-p parameter to control the diversity of the generated replies. The default value is 1.
