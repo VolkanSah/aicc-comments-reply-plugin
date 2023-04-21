@@ -33,16 +33,15 @@ The plugin allows you to configure the following settings:
 
 If you need help with the WPWM OpenAI (ChatGPT) Comments Reply plugin, please contact us at [support@wpwm.com](mailto:support@wpwm.com).
 
-License
+## License
 
 "This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credit to https://wordpress-webmaster.de.". However, please keep in mind that creating and maintaining this plugin requires time and effort. If you find this plugin useful, please consider buying me a coffee, sponsoring my work on GitHub, or leaving a review.
 
 Note that while this plugin is free, it is not free for commercial use. If you want to use this plugin for commercial purposes, please contact me to discuss a commercial license.
 
-Disclaimer
+## Disclaimer
 
 This plugin uses OpenAI's API, which is a third-party service. Please review OpenAI's terms of service and ensure you comply with their usage policies. The plugin author is not responsible for any misuse or violation of OpenAI's terms of service.
 
-Copyright
-
-(c) Sahan Volkan Sah Kücükbudak
+## Copyright
+(c) a product of S. Volkan Kücükbudak
