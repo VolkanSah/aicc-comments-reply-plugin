@@ -1,10 +1,20 @@
 <?php
 /*
-Plugin Name: WPWM OpenAI (ChatGPT) Comments Reply
-Description: Ein Plugin, das OpenAI's ChatGPT verwendet, um automatisch auf Kommentare zu antworten.
-Version: 1.0
-Author: Volkan Kücükbudak
-*/
+ * Plugin Name:       (WPWM) Comments reply with ChatGPT(OpenAi)
+ * Plugin URI:        https://wordpress-webmaster.de/wpwm-comments-reply-with-chatgpt-plugin/
+ * Description:       Handle the basics with this plugin.
+ * Version:           1.0
+ * Requires at least: 5.2
+ * Requires PHP:      7.4
+ * Author:            S. Volkan Kücükbudak
+ * Author URI:        https://wordpress-webmaster.de
+ * License:           GPL v2 or later
+ * License URI:       https://creativecommons.org/licenses/by/4.0/
+ * Update URI:        https://github.com/VolkanSah/WordPress-comments-reply-with-ChatGPT/
+ * Text Domain:       wpwm-crgpt
+ * Domain Path:       /languages
+ */
+
 // Plugin Options and Settings
 function wpwm_openai_settings_init() {
     register_setting('wpwm_openai_settings', 'openai_api_key');
