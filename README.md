@@ -6,13 +6,6 @@ WPWM OpenAI (ChatGPT) Comments Reply is a plugin that uses OpenAI's ChatGPT to a
 
 
 
-## Screenshots
-### Option-Page
-![Screenshot of Option Page](wpwm_comments_optionpage.png)
-### Comments reply
-![Screenshot of comment view](comments_review.png)
-
-
 ## Installation
 
 1. Upload the plugin files to the `/wp-content/plugins/WordPress-ChatGPT-Comments-Reply/core.php` directory, or install the plugin through the WordPress plugins screen directly.
@@ -38,10 +31,6 @@ The plugin allows you to configure the following settings:
 - The quality of the generated replies may vary depending on the quality of the input comment and the chosen OpenAI model and parameters.
 - The plugin does not guarantee the accuracy or appropriateness of the generated replies and the website owner is responsible for reviewing and moderating the comments and generated replies.
 
-## Support
-
-If you need help with the WPWM OpenAI (ChatGPT) Comments Reply plugin, please contact us at [support@wpwm.com](mailto:support@wpwm.com).
-
 ## License
 
 "This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credits to [VolkanSah - https://wordpress-webmaster.de] 
@@ -55,6 +44,12 @@ This plugin uses OpenAI's API, which is a third-party service. Please review Ope
 
 ## Copyright
 (c) a product of S. Volkan Kücükbudak
+
+## Screenshots
+### Option-Page
+![Screenshot of Option Page](wpwm_comments_optionpage.png)
+### Comments reply
+![Screenshot of comment view](comments_review.png)
 
 
 
