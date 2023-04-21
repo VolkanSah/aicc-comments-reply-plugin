@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WPWM OpenAI (ChatGPT) Comments Reply
-Description: Ein Plugin, das OpenAI's ChatGPT verwendet, um automatisch auf Kommentare zu antworten.
+Description: Ein Plugin, das OpenAIs ChatGPT verwendet, um automatisch auf Kommentare zu antworten.
 Version: 1.0
 Author: Volkan Kücükbudak
 */
