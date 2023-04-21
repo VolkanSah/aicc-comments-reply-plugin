@@ -4,6 +4,15 @@
 
 WPWM OpenAI (ChatGPT) Comments Reply is a plugin that uses OpenAI's ChatGPT to automatically reply to comments on your WordPress website. The plugin adds a "Reply with WPWM OpenAI" button to the comment line actions, which when clicked, sends the comment text to OpenAI's ChatGPT API and returns a suggested response.
 
+
+
+## Screenshots
+### Option-Page
+![Screenshot of Option Page](wpwm_comments_optionpage.png)
+### Comments reply
+![Screenshot of comment view](comments_review.png)
+
+
 ## Installation
 
 1. Upload the plugin files to the `/wp-content/plugins/WordPress-ChatGPT-Comments-Reply/core.php` directory, or install the plugin through the WordPress plugins screen directly.
@@ -47,8 +56,5 @@ This plugin uses OpenAI's API, which is a third-party service. Please review Ope
 ## Copyright
 (c) a product of S. Volkan Kücükbudak
 
-## Screenshots
-![Screenshot of Option Page](wpwm_comments_optionpage.png)
-![Screenshot of comment view](comments_review.png)
 
 
