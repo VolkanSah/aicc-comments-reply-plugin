@@ -7,7 +7,7 @@ WPWM OpenAI (ChatGPT) Comments Reply is a plugin that uses OpenAI's ChatGPT to a
 
 ## Table of Contents
 - [Installation](#Installation)
-- [Plugin Options and Settings](Plugin Options and Settings)
+- [Plugin Options and Settings](plugin-options-and-settings)
 - [Limitations](#Limitations)
 - [License](#License)
 - [Disclaimer](#Disclaimer)
