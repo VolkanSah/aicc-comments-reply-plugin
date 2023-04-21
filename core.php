@@ -50,7 +50,8 @@ function wpwm_openai_add_button_to_comment_row_actions($actions, $comment) {
     $actions['wpwm_openai_reply'] = '<a href="#" class="openai-reply">Reply with WPWM OpenAI</a>';
     return $actions;
 }
-add_filter('comment_row_actions', 'wpwm_openai_add_button_to_comment_row_actions',
+add_filter('comment_row_actions', 'wpwm_openai_add_button_to_comment_row_actions', 10, 2);
+
 
 // Adds JavaScript code to process OpenAI responses
 function wpwm_openai_add_js_to_comment_page() {
