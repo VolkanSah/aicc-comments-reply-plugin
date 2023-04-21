@@ -22,10 +22,12 @@ This is a WordPress plugin that uses OpenAI's ChatGPT to automatically reply to 
 - The plugin will generate an AI-based reply and pre-fill the reply textarea.
 - Review and edit the reply as needed, then click Reply.
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed by Sahan Volkan Sah Kücükbudak, you can use it for free on privat & commercial website. if you love my work buy me a coffee, write about my works or spend for our free work or become a sponsor.
+
+This code is my code! If you want use it for commercial sites or Plugins please Read Lizens Text (German Law)
 
 ## Disclaimer
 This plugin uses OpenAI's API, which is a third-party service. Please review OpenAI's terms of service and ensure you comply with their usage policies. The plugin author is not responsible for any misuse or violation of OpenAI's terms of service.
 
-## Credits
-Copyright Volkan Sah
+## Copyright
+Volkan Sah
