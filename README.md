@@ -36,11 +36,11 @@ If you need help with the WPWM OpenAI (ChatGPT) Comments Reply plugin, please co
 
 ## License
 
-"This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credit to https://wordpress-webmaster.de.". 
+"This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, as long as you give appropriate credit to https://wordpress-webmaster.de.". 
 
 However, please keep in mind that creating and maintaining plugins or code for free, requires time and effort. If you find this plugin useful, please consider buying me a coffee, sponsoring my work on GitHub, or leaving a review.
 
-Note that while this plugin is free, it is not free for commercial use. If you want to use this plugin for commercial purposes, please contact me to discuss a commercial license.
+**Note that while this plugin is free, it is not free for commercial use. If you want to use this plugin for commercial purposes, please contact me to discuss a commercial license.**
 
 ## Disclaimer
 
