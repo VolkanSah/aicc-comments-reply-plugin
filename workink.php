@@ -83,7 +83,7 @@ function wpwm_openai_add_js_to_comment_page() {
                     data: JSON.stringify({
                         "model": "text-davinci-003",
                         "prompt": 'Reply to comment: ' + comment_text,
-                        "max_tokens": 1024,
+                        "max_tokens": 100,
                         "temperature": 0.5
                     }),
                     success: function (response) {
