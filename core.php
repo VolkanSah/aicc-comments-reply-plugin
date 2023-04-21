@@ -85,7 +85,7 @@ function wpwm_openai_settings_page() {
                     <td>
                         <select name="model">
                             <option <?php selected($model, 'text-davinci-003'); ?> value="text-davinci-003">text-davinci-003</option>
-                            <!-- Add other models here -->
+                            <!--  other models soon, sorry testing cost money  -->
                         </select>
                     </td>
                 </tr>
