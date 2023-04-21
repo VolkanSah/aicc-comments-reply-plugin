@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WPWM OpenAI (ChatGPT) Comments Reply
-Description: Ein Plugin, das OpenAIs ChatGPT verwendet, um automatisch auf Kommentare zu antworten.
+Description: Ein Plugin, das OpenAI's ChatGPT verwendet, um automatisch auf Kommentare zu antworten.
 Version: 1.0
 Author: Volkan Kücükbudak
 */
@@ -9,6 +9,12 @@ Author: Volkan Kücükbudak
 // Plugin Options and Settings
 function wpwm_openai_settings_init() {
     register_setting('wpwm_openai_settings', 'openai_api_key');
+    register_setting('wpwm_openai_settings', 'model');
+    register_setting('wpwm_openai_settings', 'temperature');
+    register_setting('wpwm_openai_settings', 'max_tokens');
+    register_setting('wpwm_openai_settings', 'top_p');
+    register_setting('wpwm_openai_settings', 'frequency_penalty');
+    register_setting('wpwm_openai_settings', 'presence_penalty');
 }
 add_action('admin_init', 'wpwm_openai_settings_init');
 
@@ -32,7 +38,7 @@ function wpwm_openai_settings_page() {
     $top_p = get_option('top_p');
     $frequency_penalty = get_option('frequency_penalty');
     $presence_penalty = get_option('presence_penalty');
-    
+
     ?>
     <div class="wrap">
         <h1>WPWM OpenAI Comment Reply Settings</h1>
@@ -58,22 +64,25 @@ function wpwm_openai_settings_page() {
                     <th scope="row">Temperature</th>
                     <td><input type="number" step="0.01" min="0" max="1" name="temperature" value="<?php echo esc_attr($temperature); ?>" /></td>
                 </tr>
-                <tr valign="top">
+                
+                
+                 <tr valign="top">
                     <th scope="row">Max Tokens</th>
                     <td><input type="number" min="1" name="max_tokens" value="<?php echo esc_attr($max_tokens); ?>" /></td>
-                </tr>
+                     
+                     </tr>
                 <tr valign="top">
                     <th scope="row">Top P</th>
                     <td><input type="number" step="0.01" min="0" max="1" name="top_p" value="<?php echo esc_attr($top_p); ?>" /></td>
                 </tr>
                 <tr valign="top">
-    <th scope="row">Frequency Penalty</th>
-    <td><input type="number" step="0.01" min="0" max="1" name="frequency_penalty" value="<?php echo esc_attr($frequency_penalty); ?>" /></td>
-</tr>
-<tr valign="top">
-    <th scope="row">Presence Penalty</th>
-    <td><input type="number" step="0.01" min="0" max="1" name="presence_penalty" value="<?php echo esc_attr($presence_penalty); ?>" /></td>
-</tr>
+                    <th scope="row">Frequency Penalty</th>
+                    <td><input type="number" step="0.01" min="0" max="1" name="frequency_penalty" value="<?php echo esc_attr($frequency_penalty); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Presence Penalty</th>
+                    <td><input type="number" step="0.01" min="0" max="1" name="presence_penalty" value="<?php echo esc_attr($presence_penalty); ?>" /></td>
+                </tr>
             </table>
             <?php submit_button(); ?>
         </form>
@@ -98,9 +107,10 @@ function wpwm_openai_add_js_to_comment_page() {
     $top_p = get_option('top_p');
     $frequency_penalty = get_option('frequency_penalty');
     $presence_penalty = get_option('presence_penalty');
-    
+
     ?>
-    <script>
+
+   <script>
         jQuery(document).ready(function ($) {
             // Adds click handlers to "Reply with WPWM OpenAI" button
             $('.openai-reply').click(function () {
@@ -124,33 +134,29 @@ function wpwm_openai_add_js_to_comment_page() {
                         "Authorization": "Bearer " + apiKey
                     },
                     data: JSON.stringify({
-                    "model": "<?php echo esc_attr($model); ?>",
-                    "prompt": 'Reply to comment: ' + comment_text,
-                    "max_tokens": <?php echo esc_attr($max_tokens); ?>,
-                    "temperature": <?php echo esc_attr($temperature); ?>,
-                    "top_p": <?php echo esc_attr($top_p); ?>,
-                    "frequency_penalty": <?php echo esc_attr($frequency_penalty); ?>,
-                    "presence_penalty": <?php echo esc_attr($presence_penalty); ?>
-                
+                        "model": "<?php echo esc_attr($model); ?>",
+                        "prompt": 'Reply to comment: ' + comment_text,
+                        "max_tokens": <?php echo esc_attr($max_tokens); ?>,
+                        "temperature": <?php echo esc_attr($temperature); ?>,
+                        "top_p": <?php echo esc_attr($top_p); ?>,
+                        "frequency_penalty": <?php echo esc_attr($frequency_penalty); ?>,
+                        "presence_penalty": <?php echo esc_attr($presence_penalty); ?>
                     }),
                     
-                          success: function (response) {
-                            var choices = response.choices;
-                            if (choices.length > 0) {
-                                var choice = choices[0];
-                                var reply_text = choice.text;
-                                $('#replycontent', editRow).val(reply_text);
-                                $('#replysubmit .spinner').removeClass('is-active');
-                            }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.error("Error:", textStatus, errorThrown);
+                       success: function (response) {
+                        var choices = response.choices;
+                        if (choices.length > 0) {
+                            var choice = choices[0];
+                            var reply_text = choice.text;
+                            $('#replycontent', editRow).val(reply_text);
                             $('#replysubmit .spinner').removeClass('is-active');
                         }
-                    });
-                }
-            });
-        </script>
-        <?php
-    }
-    add_action('admin_footer-edit-comments.php', 'wpwm_openai_add_js_to_comment_page');
+                    }
+                });
+            }
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer-edit-comments.php', 'wpwm_openai_add_js_to_comment_page');
+                
