@@ -44,7 +44,7 @@ The plugin allows you to configure the following settings:
 
 "This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credits to [VolkanSah - https://wordpress-webmaster.de] 
 
-However, please keep in mind that creating and maintaining plugins or code for free, requires time and effort. If you find this plugin useful, please consider buying me a coffee, sponsoring my work on GitHub, or leaving a review.
+However, please keep in mind that creating and maintaining plugins or code for free, requires time and effort. If you find this plugin useful, please consider buying me a coffee, sponsoring my work on GitHub, or leaving a review, a "STAR" or follow me :smile:
 
 
 ## Disclaimer
