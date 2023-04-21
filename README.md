@@ -1,4 +1,4 @@
-# WordPress OpenAI (ChatGPT) Comments Reply Plugin
+# WordPress - ChatGPT (OpenAi) Comments Reply Plugin
 This is a WordPress plugin that uses OpenAI's ChatGPT to automatically reply to comments. It helps blog administrators save time and effort in responding to comments by providing AI-generated replies based on the content of the comments.
 
 ## Features
