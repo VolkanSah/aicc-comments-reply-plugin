@@ -1,5 +1,6 @@
-# WPWMs ChatGPT Comments Reply (WordPress Plugin)
-###  will stay always for free !
+# WPWMs ChatGPT Comments Reply 
+###### WordPress Plugins by Volkan Sah
+####  will stay always for free !
 
 ## Description
 
