@@ -102,5 +102,3 @@ function wpwm_openai_add_js_to_comment_page() {
     <?php
 }
 add_action('admin_footer-edit-comments.php', 'wpwm_openai_add_js_to_comment_page');
-
-
