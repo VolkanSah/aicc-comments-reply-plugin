@@ -46,3 +46,9 @@ This plugin uses OpenAI's API, which is a third-party service. Please review Ope
 
 ## Copyright
 (c) a product of S. Volkan Kücükbudak
+
+## Screenshots
+![Screenshot of Option Page](wpwm_comments_optionpage.png)
+![Screenshot of comment view](comments_review.png)
+
+
