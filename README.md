@@ -1,4 +1,4 @@
-# WPWMs - Comments Reply with ChatGPT(OpenAi) - WordPress Plugin
+# WPWMs - Comments Reply with ChatGPT(OpenAi) 1.0.0 - WordPress Plugin
 ###### WordPress Plugins by Volkan Sah - Simple codings
 ![Screenshot](screenshot.jpg)
 ## Description
