@@ -57,6 +57,9 @@ This plugin uses OpenAI's API, which is a third-party service. Please review Ope
 ## Copyright
 (c) a product of S. Volkan Kücükbudak
 
+Plugin on [WordPress.org](https://wordpress.org/plugins/wpwms-comments-reply-with-chatgpt-openai/
+
+
 ## Screenshots
 ##### Option-Page
 ![Screenshot of Option Page](wpwm_comments_optionpage.png)
