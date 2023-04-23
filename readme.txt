@@ -5,7 +5,7 @@ Requires at least: 5.6
 Tested up to: 6.2
 Stable tag: 1.0.0
 License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/blob/main/LICENSE.txt
 
 Automatically generates and replies to comments on your WordPress website using OpenAI's ChatGPT.
 
