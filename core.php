@@ -8,7 +8,7 @@
  * Requires PHP:      7.4
  * Author:            S. Volkan Kücükbudak
  * Author URI:        https://wordpress-webmaster.de
- * License:           GPL v2 or later
+ * License:           CC BY 4.0
  * License URI:       https://creativecommons.org/licenses/by/4.0/
  * Update URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin.git
  * Text Domain:       wpwm-crgpt
