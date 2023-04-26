@@ -43,7 +43,7 @@ The plugin allows you to configure the following settings:
 
 ## License
 
-"This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credits to [VolkanSah - https://wordpress-webmaster.de]  
+"This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credits to [VolkanSah]  
 
 - Please read [License-Text](LICENSE.txt)
 
