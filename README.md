@@ -55,7 +55,9 @@ However, please keep in mind that creating and maintaining plugins or code for f
 This plugin uses OpenAI's API, which is a third-party service. Please review OpenAI's terms of service and ensure you comply with their usage policies. The plugin author is not responsible for any misuse or violation of OpenAI's terms of service.
 
 ## Copyright
-(c) a product of S. Volkan Kücükbudak
+- [VolkanSah on Github](https://github.com/volkansah)
+- [Developer Site](https://volkansah.github.io)
+- [Become a 'Sponsor'](https://github.com/sponsors/volkansah)
 
 
 ## Screenshots
