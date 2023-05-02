@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name:       VOlkans - Comments Reply with ChatGPT (OpenAi)
+ * Plugin Name:       Volkans - Comments Reply with ChatGPT (OpenAi)
  * Plugin URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/
  * Description:       Effortlessly manage and respond to comments on your WordPress site with the power of AI using the ChatGPT Comments Reply Plugin
  * Version:           1.0
