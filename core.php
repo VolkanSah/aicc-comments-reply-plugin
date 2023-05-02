@@ -1,16 +1,16 @@
 <?php
 /*
  * Plugin Name:       WPWMs - Comments Reply with ChatGPT (OpenAi)
- * Plugin URI:        https://wordpress-webmaster.de/wordpress-chatgpt-comments-reply-plugin/
+ * Plugin URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/
  * Description:       Effortlessly manage and respond to comments on your WordPress site with the power of AI using the ChatGPT Comments Reply Plugin
  * Version:           1.0
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            S. Volkan Kücükbudak
- * Author URI:        https://wordpress-webmaster.de
+ * Author URI:        https://volkansah.github.com
  * License:           CC BY 4.0
  * License URI:       https://creativecommons.org/licenses/by/4.0/
- * Update URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin.git
+ * Update URI:       https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/
  * Text Domain:       wpwm-crgpt
  * Domain Path:       /languages
  */
