@@ -41,12 +41,6 @@ The plugin allows you to configure the following settings:
 - The quality of the generated replies may vary depending on the quality of the input comment and the chosen OpenAI model and parameters.
 - The plugin does not guarantee the accuracy or appropriateness of the generated replies and the website owner is responsible for reviewing and moderating the comments and generated replies.
 
-## License
-
-"This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credits to [VolkanSah]  
-
-- Please read [License-Text](LICENSE.txt)
-
 However, please keep in mind that creating and maintaining plugins or code for free, requires time and effort. If you find this plugin useful, please consider buying me a coffee, sponsoring my work on GitHub, or leaving a review, a "STAR" or follow me :smile:
 
 
@@ -54,17 +48,19 @@ However, please keep in mind that creating and maintaining plugins or code for f
 
 This plugin uses OpenAI's API, which is a third-party service. Please review OpenAI's terms of service and ensure you comply with their usage policies. The plugin author is not responsible for any misuse or violation of OpenAI's terms of service.
 
-## Copyright
+### Thank you for your support!
+- If you appreciate my work, please consider [becoming a 'Sponsor'](https://github.com/sponsors/volkansah), giving a :star: to my projects, or following me. 
+### Credits
 - [VolkanSah on Github](https://github.com/volkansah)
 - [Developer Site](https://volkansah.github.io)
-- [Become a 'Sponsor'](https://github.com/sponsors/volkansah)
+
+### License
+
+"This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credits to Volkan Sah, see[License-Text](LICENSE.txt)
 
 
-## Screenshots
+### Screenshots
 ##### Option-Page
 ![Screenshot of Option Page](wpwm_comments_optionpage.png)
 ##### Comments reply
 ![Screenshot of comment view](comments_review.png)
-
-
-
