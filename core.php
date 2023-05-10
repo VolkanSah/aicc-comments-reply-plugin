@@ -14,7 +14,10 @@
  * Text Domain:       wpwm-crgpt
  * Domain Path:       /languages
  */
-
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 // Plugin Options and Settings
 function wpwm_openai_settings_init() {
     register_setting('wpwm_openai_settings', 'openai_api_key');
