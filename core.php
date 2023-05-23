@@ -66,8 +66,8 @@ function wpwm_openai_settings_page() {
     <p>These are the recommended settings for the plugin:</p>
     <ul>
         <li>Model: text-davinci-003</li>
-        <li>Temperature: 0.9</li>
-        <li>Max Tokens: 1000</li>
+        <li>Temperature: 0.6</li>
+        <li>Max Tokens: 500</li>
         <li>Top P: 1</li>
         <li>Frequency Penalty: 0.0</li>
         <li>Presence Penalty: 0.0</li>
