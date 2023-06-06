@@ -10,7 +10,7 @@
  * Author URI:        https://volkansah.github.com
  * License:           CC BY 4.0
  * License URI:       https://creativecommons.org/licenses/by/4.0/
- * Update URI:       https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/
+ * Update URI:       https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/latest.zip
  * Text Domain:       wpwm-crgpt
  * Domain Path:       /languages
  */
