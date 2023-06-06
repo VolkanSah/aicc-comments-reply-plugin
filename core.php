@@ -121,7 +121,7 @@ function wpwm_openai_settings_page() {
 }
 // Adds button to comment line actions
 function wpwm_openai_add_button_to_comment_row_actions($actions, $comment) {
-    $actions['wpwm_openai_reply'] = '<a href="#" class="openai-reply">Reply with WPWM OpenAI</a>';
+    $actions['wpwm_openai_reply'] = '<a href="#" class="openai-reply">Reply with A.I</a>';
     return $actions;
 }
 add_filter('comment_row_actions', 'wpwm_openai_add_button_to_comment_row_actions', 10, 2);
