@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name:       Volkans - Comments Reply with ChatGPT (OpenAi)
+ * Plugin Name:       A.I Comments Reply for GPT
  * Plugin URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/
  * Description:       Effortlessly manage and respond to comments on your WordPress site with the power of AI using the ChatGPT Comments Reply Plugin
  * Version:           1.0
@@ -11,7 +11,7 @@
  * License:           CC BY 4.0
  * License URI:       https://creativecommons.org/licenses/by/4.0/
  * Update URI:       https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/latest.zip
- * Text Domain:       wpwm-crgpt
+ * Text Domain:       aicc-aicr
  * Domain Path:       /languages
  */
 // If this file is called directly, abort.
