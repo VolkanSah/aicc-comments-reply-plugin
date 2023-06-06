@@ -21,7 +21,7 @@ WPWMs - Comments Reply with ChatGPT(OpenAi) is a plugin that uses OpenAI's ChatG
 1. Upload the plugin files to the `/wp-content/plugins/WordPress-ChatGPT-Comments-Reply/core.php` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Use the Settings->WPWM OpenAI Settings screen to configure the plugin. You will need to provide an OpenAI API key to use the plugin.
-4. Use the "Reply with WPWM OpenAI" button to generate automatic replies to comments on your WordPress website.
+4. Use the "Reply with A.I" button to generate automatic replies to comments on your WordPress website.
 
 ## Plugin Options and Settings
 
