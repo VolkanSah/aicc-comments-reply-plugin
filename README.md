@@ -1,5 +1,5 @@
 # Comments Reply with ChatGPT(OpenAi) 1.0.0 - WordPress Plugin (Davinci-3)
-###### WordPress Plugins by Volkan Sah - Simple codings
+###### WordPress Plugins by Volkan Sah - Simple codings (Testet 20.06.2023: works fine!)
 ![Screenshot](screenshot.png)
 ## Description
 
