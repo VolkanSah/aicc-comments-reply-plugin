@@ -1,9 +1,9 @@
-# Comments Reply with ChatGPT(OpenAi) 1.0.0 - WordPress Plugin (Davinci-3)
+# Comments Reply with GPT(OpenAi) 1.0.0 - WordPress Plugin (Davinci-3)
 ###### WordPress Plugins by Volkan Sah - Simple codings (Testet 20.06.2023: works fine!)
 ![Screenshot](screenshot.png)
 ## Description
 
-Comments Reply with ChatGPT(OpenAi) is a plugin that uses OpenAI's GPT to automatically reply to comments on your WordPress website. The plugin adds a "Reply with WPWM OpenAI" button to the comment line actions, which when clicked, sends the comment text to OpenAI's ChatGPT API and returns a suggested response.
+Comments Reply with GPT(OpenAi) is a plugin that uses OpenAI's GPT to automatically reply to comments on your WordPress website. The plugin adds a "Reply with WPWM OpenAI" button to the comment line actions, which when clicked, sends the comment text to OpenAI's ChatGPT API and returns a suggested response.
 
 
 ## Table of Contents
@@ -20,7 +20,7 @@ Comments Reply with ChatGPT(OpenAi) is a plugin that uses OpenAI's GPT to automa
 
 1. Upload the plugin files to the `/wp-content/plugins/WordPress-ChatGPT-Comments-Reply/core.php` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Use the Settings->WPWM OpenAI Settings screen to configure the plugin. You will need to provide an OpenAI API key to use the plugin.
+3. Use the Settings->Plugin Settings screen to configure the plugin. You will need to provide an OpenAI API key to use the plugin.
 4. Use the "Reply with A.I" button to generate automatic replies to comments on your WordPress website.
 
 ## Plugin Options and Settings
