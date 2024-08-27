@@ -4,10 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Plugin Name:       AICC - AI Content Commenter
- * Plugin URI:        https://aipower.org
+ * Plugin URI:        https://aiccraft.io
  * Description:       Automate comment responses with AI.
  * Version:           1.0.0
- * Author:            Senol Sahin
+ * Author:            volkan
  * Author URI:        https://aipower.org
  * Text Domain:       aicc
  */
