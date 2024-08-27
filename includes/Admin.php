@@ -1,4 +1,3 @@
-<?php
 namespace AICC;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -11,36 +10,23 @@ class Admin {
     public function __construct($plugin_name, $version) {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
-    }
 
-    public function enqueue_styles() {
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/admin.css', [], $this->version, 'all');
-    }
-
-    public function enqueue_scripts() {
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/admin.js', ['jquery'], $this->version, false);
-    }
-
-    public function add_metabox() {
-        $screens = ['post', 'page'];
-        foreach ($screens as $screen) {
-            add_meta_box('aicc_metabox', __('AI Comment Response', 'aicc'), [$this, 'render_metabox'], $screen, 'advanced', 'default');
-        }
-    }
-
-    public function render_metabox($post) {
-        include plugin_dir_path(__FILE__) . 'views/metabox.php';
-    }
-
-    public function save_metabox($post_id) {
-        if (!isset($_POST['aicc_metabox_nonce']) || !wp_verify_nonce($_POST['aicc_metabox_nonce'], 'aicc_save_metabox')) {
-            return $post_id;
-        }
-        // Meta box saving logic here
+        // Register settings during admin init
+        add_action('admin_init', [$this, 'register_settings']);
+        // Add admin menu
+        add_action('admin_menu', [$this, 'add_admin_menu']);
     }
 
     public function add_admin_menu() {
-        add_menu_page('AI Commenter', 'AI Commenter', 'manage_options', 'aicc', [$this, 'render_settings_page'], 'dashicons-admin-generic', 6);
+        add_menu_page(
+            __('AI Commenter', 'aicc'), 
+            __('AI Commenter', 'aicc'), 
+            'manage_options', 
+            'aicc', 
+            [$this, 'render_settings_page'], 
+            'dashicons-admin-generic', 
+            6
+        );
     }
 
     public function render_settings_page() {
@@ -49,9 +35,9 @@ class Admin {
             <h1><?php _e('AI Commenter Settings', 'aicc'); ?></h1>
             <form method="post" action="options.php">
                 <?php
-                settings_fields('aicc_settings');
-                do_settings_sections('aicc');
-                submit_button();
+                settings_fields('aicc_settings'); // Sicherheitsfelder und Nonce
+                do_settings_sections('aicc'); // Die Sektionen und Felder aus register_settings() anzeigen
+                submit_button(); // Speichern-Button anzeigen
                 ?>
             </form>
         </div>
@@ -74,31 +60,23 @@ class Admin {
             'aicc'
         );
 
+        $this->add_settings_field('openai_api_key', __('API Key', 'aicc'), 'render_api_key_field');
+        $this->add_settings_field('model', __('Model', 'aicc'), 'render_model_field');
+        $this->add_settings_field('temperature', __('Temperature', 'aicc'), 'render_temperature_field');
+        $this->add_settings_field('max_tokens', __('Max Tokens', 'aicc'), 'render_max_tokens_field');
+        $this->add_settings_field('top_p', __('Top P', 'aicc'), 'render_top_p_field');
+        $this->add_settings_field('frequency_penalty', __('Frequency Penalty', 'aicc'), 'render_frequency_penalty_field');
+        $this->add_settings_field('presence_penalty', __('Presence Penalty', 'aicc'), 'render_presence_penalty_field');
+    }
+
+    private function add_settings_field($id, $title, $callback) {
         add_settings_field(
-            'openai_api_key',
-            __('API Key', 'aicc'),
-            [$this, 'render_api_key_field'],
+            $id,
+            $title,
+            [$this, $callback],
             'aicc',
             'aicc_section'
         );
-
-        add_settings_field(
-            'model',
-            __('Model', 'aicc'),
-            [$this, 'render_model_field'],
-            'aicc',
-            'aicc_section'
-        );
-
-        add_settings_field(
-            'temperature',
-            __('Temperature', 'aicc'),
-            [$this, 'render_temperature_field'],
-            'aicc',
-            'aicc_section'
-        );
-
-        // Add other fields in a similar way
     }
 
     public function render_api_key_field() {
@@ -122,6 +100,23 @@ class Admin {
         echo '<input type="number" step="0.1" min="0" max="1" name="temperature" value="' . esc_attr($value) . '" class="small-text">';
     }
 
-    // Similar methods for other fields
-}
+    public function render_max_tokens_field() {
+        $value = get_option('max_tokens');
+        echo '<input type="number" min="1" name="max_tokens" value="' . esc_attr($value) . '" class="small-text">';
+    }
 
+    public function render_top_p_field() {
+        $value = get_option('top_p');
+        echo '<input type="number" step="0.1" min="0" max="1" name="top_p" value="' . esc_attr($value) . '" class="small-text">';
+    }
+
+    public function render_frequency_penalty_field() {
+        $value = get_option('frequency_penalty');
+        echo '<input type="number" step="0.1" min="0" max="1" name="frequency_penalty" value="' . esc_attr($value) . '" class="small-text">';
+    }
+
+    public function render_presence_penalty_field() {
+        $value = get_option('presence_penalty');
+        echo '<input type="number" step="0.1" min="0" max="1" name="presence_penalty" value="' . esc_attr($value) . '" class="small-text">';
+    }
+}
