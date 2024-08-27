@@ -26,8 +26,7 @@ A.I Comments Reply for GPT is a WordPress plugin designed to simplify the manage
 The plugin allows you to configure the following settings:
 
 - **OpenAI API Key**: Enter your OpenAI API key to use the plugin.
-- **Model**: Choose from a variety of models, including `gpt-3.5-turbo`, `gpt-4`, and other advanced GPT-4 models.
-- **Temperature**: Controls the creativity of the generated replies (default: 0.6).
+- **Model**: Choose from a variety of models, including gpt-3.5-turbo, gpt-3.5-turbo-0125, gpt-3.5-turbo-1106, gpt-3.5-turbo-16k, gpt-4, gpt-4-0125-preview, gpt-4-0613, gpt-4-1106-preview, gpt-4-turbo, gpt-4-turbo-2024-04-09, gpt-4-turbo-preview, gpt-4o, gpt-4o-2024-05-13, gpt-4o-2024-08-06, gpt-4o-mini, gpt-4o-mini-2024-07-18, and chatgpt-4o-latest, offering flexibility and advanced capabilities to suit your needs.- **Temperature**: Controls the creativity of the generated replies (default: 0.6).
 - **Max Tokens**: Sets the maximum number of tokens for the reply (default: 500).
 - **Top P**: Controls the diversity of the generated replies (default: 1).
 - **Frequency Penalty**: Controls the likelihood of the same words being repeated (default: 0.0).
