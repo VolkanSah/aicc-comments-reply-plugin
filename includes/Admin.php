@@ -1,3 +1,4 @@
+<?php
 namespace AICC;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
