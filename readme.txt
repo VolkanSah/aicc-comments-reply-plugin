@@ -4,7 +4,7 @@ Tags: chatgpt, openai, comment-reply, gpt-4, comment, autoreply, comments reply,
 Requires at least: 5.6
 Tested up to: 6.2
 Stable tag: 2.0.0
-License: GPLv3
+License: GPLv3+
 License URI: https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/blob/main/LICENSE.txt
 
 Automatically generates and replies to comments on your WordPress website using OpenAI's GPT models, with built-in moderation tools. This plugin is and will always remain free and open source.
