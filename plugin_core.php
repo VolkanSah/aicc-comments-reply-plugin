@@ -1,3 +1,4 @@
+<?php
 /*
  * Plugin Name:       A.I Comments Reply for GPT
  * Plugin URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/
