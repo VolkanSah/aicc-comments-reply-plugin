@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace AICC;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -6,7 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Plugin {
 
     private static $instance = null;
-
     private $version = '1.0.0';
     private $plugin_name = 'aicc';
 
@@ -19,6 +18,7 @@ class Plugin {
 
     private function __construct() {
         $this->define_admin_hooks();
+        $this->load_default_options();
     }
 
     private function define_admin_hooks() {
@@ -28,5 +28,23 @@ class Plugin {
         add_action('add_meta_boxes', [$admin, 'add_metabox']);
         add_action('save_post', [$admin, 'save_metabox']);
         add_action('admin_menu', [$admin, 'add_admin_menu']);
+    }
+
+    private function load_default_options() {
+        $default_options = [
+            'openai_api_key' => '',
+            'model' => 'gpt-3.5-turbo',
+            'temperature' => 0.7,
+            'max_tokens' => 1000,
+            'top_p' => 1.0,
+            'frequency_penalty' => 0.0,
+            'presence_penalty' => 0.0,
+        ];
+
+        foreach ($default_options as $key => $value) {
+            if (get_option($key) === false) {
+                update_option($key, $value);
+            }
+        }
     }
 }
