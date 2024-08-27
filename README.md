@@ -1,66 +1,77 @@
-# Comments Reply with GPT(OpenAi) 1.0.0 - WordPress Plugin (Davinci-3)
-###### WordPress Plugins by Volkan Sah - Simple codings (Testet 13.07.2023: works fine!)
+# A.I Comments Reply for GPT (OpenAI) 2.0.0 - WordPress Plugin
+
+### WordPress Plugins by Volkan Sah - Simple codings (Tested and working as of [Date])
+
 ![Screenshot](screenshot.png)
+
 ## Description
 
-Comments Reply with GPT(OpenAi) is a plugin that uses OpenAI's GPT to automatically reply to comments on your WordPress website. The plugin adds a "Reply with WPWM OpenAI" button to the comment line actions, which when clicked, sends the comment text to OpenAI's ChatGPT API and returns a suggested response.
-
+A.I Comments Reply for GPT is a WordPress plugin designed to simplify the management of comments on your site by leveraging OpenAI's GPT models. Unlike other plugins that are often overburdened with unnecessary features and charge for basic functionalities like moderation, this plugin focuses on providing a streamlined and free solution. The plugin adds a "Reply with AICC OpenAI" button to comment actions, enabling automatic, context-aware replies to user comments.
 
 ## Table of Contents
-- [Installation](#Installation)
+- [Installation](#installation)
 - [Plugin Options and Settings](#plugin-options-and-settings)
-- [Limitations](#Limitations)
-- [License](#License)
-- [Disclaimer](#Disclaimer)
-- [Copyright](#Copyright)
-- [Screenshots](#Screenshots)
-
+- [Features](#features)
+- [Limitations](#limitations)
+- [License](#license)
+- [Disclaimer](#disclaimer)
+- [Screenshots](#screenshots)
 
 ## Installation
 
-1. Upload the plugin files to the `/wp-content/plugins/WordPress-ChatGPT-Comments-Reply/core.php` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/aicc-comments-reply` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Use the Settings->Plugin Settings screen to configure the plugin. You will need to provide an OpenAI API key to use the plugin.
+3. Go to Settings -> AICC OpenAI Comment Reply to configure the plugin. You will need to provide an OpenAI API key to use the plugin.
 4. Use the "Reply with A.I" button to generate automatic replies to comments on your WordPress website.
 
 ## Plugin Options and Settings
 
 The plugin allows you to configure the following settings:
 
-- OpenAI API Key: Enter your OpenAI API key here to use the plugin.
-- Model: The default model is 'text-davinci-003' (best)
-- Temperature: Set the temperature parameter to control the creativity of the generated replies. The default temperature is 0.9.
-- Max Tokens: Set the maximum number of tokens to generate for the reply. The default value is 100.
-- Top P: Set the top-p parameter to control the diversity of the generated replies. The default value is 1.
-- Frequency Penalty: Set the frequency penalty parameter to control the likelihood of the same word being repeated in the generated replies. The default value is 0.0.
-- Presence Penalty: Set the presence penalty parameter to control the likelihood of the same word being present in the generated replies. The default value is 0.0.
+- **OpenAI API Key**: Enter your OpenAI API key to use the plugin.
+- **Model**: Choose from a variety of models, including `gpt-3.5-turbo`, `gpt-4`, and other advanced GPT-4 models.
+- **Temperature**: Controls the creativity of the generated replies (default: 0.6).
+- **Max Tokens**: Sets the maximum number of tokens for the reply (default: 500).
+- **Top P**: Controls the diversity of the generated replies (default: 1).
+- **Frequency Penalty**: Controls the likelihood of the same words being repeated (default: 0.0).
+- **Presence Penalty**: Controls the likelihood of new concepts being introduced (default: 0.0).
+
+## Features
+
+- **Streamlined Functionality**: This plugin avoids unnecessary bloat by focusing solely on generating comment replies using AI, without any hidden costs.
+- **Free and Open Source**: Unlike many other plugins that charge for essential features, A.I Comments Reply for GPT is completely free, aligning with the open-source philosophy of WordPress.
+- **Advanced Moderation**: Integrates OpenAI’s Moderation API to ensure that user comments are appropriate before generating a reply, preventing inappropriate content from being processed.
+- **Wide Range of Models**: Supports a variety of GPT models, giving you the flexibility to choose the one that best fits your needs and budget.
+- **User-friendly Interface**: Easy to set up and use, with all necessary settings available in the WordPress admin area.
 
 ## Limitations
 
 - The plugin requires an OpenAI API key to function.
-- The quality of the generated replies may vary depending on the quality of the input comment and the chosen OpenAI model and parameters.
-- The plugin does not guarantee the accuracy or appropriateness of the generated replies and the website owner is responsible for reviewing and moderating the comments and generated replies.
+- The quality of the generated replies may vary depending on the input comment and chosen OpenAI model and parameters.
+- The plugin does not guarantee the accuracy or appropriateness of the generated replies. It is recommended that website moderators review and approve comments before publishing.
 
-However, please keep in mind that creating and maintaining plugins or code for free, requires time and effort. If you find this plugin useful, please consider buying me a coffee, sponsoring my work on GitHub, or leaving a review, a "STAR" or follow me :smile:
+## License
 
+This plugin is licensed under the Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credit to Volkan Sah. See [License-Text](LICENSE.txt) for details.
 
 ## Disclaimer
 
-This plugin uses OpenAI's API, which is a third-party service. Please review OpenAI's terms of service and ensure you comply with their usage policies. The plugin author is not responsible for any misuse or violation of OpenAI's terms of service.
+This plugin uses OpenAI's API, which is a third-party service. Please review OpenAI's terms of service and ensure compliance with their usage policies. The plugin author is not responsible for any misuse or violation of OpenAI's terms of service.
 
-### Thank you for your support!
-- If you appreciate my work, please consider [becoming a 'Sponsor'](https://github.com/sponsors/volkansah), giving a :star: to my projects, or following me. 
+## Screenshots
+
+### Option-Page
+![Screenshot of Option Page](wpwm_comments_optionpage.png)
+
+### Comments reply
+![Screenshot of comment view](comments_review.png)
+
+## Thank you for your support!
+
+If you find this plugin useful, please consider [becoming a 'Sponsor'](https://github.com/sponsors/volkansah), giving a :star: to my projects, or following me. Your support helps keep this project alive and growing.
+
 ### Credits
+
 - [VolkanSah on Github](https://github.com/volkansah)
 - [Developer Site](https://volkansah.github.io)
 
-### License
-
-"This work is licensed under a Creative Commons Attribution 4.0 International License. You are free to share, adapt, and build upon this work for any purpose, even commercially, as long as you give appropriate credits to Volkan Sah, see[License-Text](LICENSE.txt)
-
-
-### Screenshots
-##### Option-Page
-![Screenshot of Option Page](wpwm_comments_optionpage.png)
-##### Comments reply
-![Screenshot of comment view](comments_review.png)
