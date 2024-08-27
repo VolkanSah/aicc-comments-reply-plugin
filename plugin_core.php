@@ -132,15 +132,7 @@ function wpwm_openai_add_button_to_comment_row_actions($actions, $comment) {
 }
 add_filter('comment_row_actions', 'wpwm_openai_add_button_to_comment_row_actions', 10, 2);
 
-// Adds JavaScript code to process OpenAI responses
 function wpwm_openai_add_js_to_comment_page() {
-    $openai_api_key = get_option('openai_api_key');
-    $model = get_option('model');
-    $temperature = get_option('temperature');
-    $max_tokens = get_option('max_tokens');
-    $top_p = get_option('top_p');
-    $frequency_penalty = get_option('frequency_penalty');
-    $presence_penalty = get_option('presence_penalty');
     ?>
    <script>
         jQuery(document).ready(function ($) {
@@ -156,31 +148,22 @@ function wpwm_openai_add_js_to_comment_page() {
                 var comment_text = $('textarea.comment', rowData).val();
                 var editRow = $('#replyrow');
                 $('#replysubmit .spinner').addClass('is-active');
-                var apiKey = "<?php echo esc_attr($openai_api_key); ?>";
 
                 $.ajax({
                     type: "POST",
-                    url: "https://api.openai.com/v1/chat/completions",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + apiKey
+                    url: ajaxurl,
+                    data: {
+                        action: 'wpwm_openai_generate_reply',
+                        comment_text: comment_text,
+                        comment_id: comment_id,
                     },
-                    data: JSON.stringify({
-                        "model": "<?php echo esc_attr($model); ?>",
-                        "messages": [
-                            {"role": "system", "content": "You are a helpful assistant."},
-                            {"role": "user", "content": "Reply to this comment: " + comment_text}
-                        ],
-                        "max_tokens": <?php echo esc_attr($max_tokens); ?>,
-                        "temperature": <?php echo esc_attr($temperature); ?>,
-                        "top_p": <?php echo esc_attr($top_p); ?>,
-                        "frequency_penalty": <?php echo esc_attr($frequency_penalty); ?>,
-                        "presence_penalty": <?php echo esc_attr($presence_penalty); ?>
-                    }),
                     success: function (response) {
-                        var reply_text = response.choices[0].message.content;
-                        $('#replycontent', editRow).val(reply_text);
-                        $('#replysubmit .spinner').removeClass('is-active');
+                        if(response.success) {
+                            $('#replycontent', editRow).val(response.data.reply);
+                            $('#replysubmit .spinner').removeClass('is-active');
+                        } else {
+                            alert('Error: ' + response.data.message);
+                        }
                     }
                 });
             }
@@ -189,3 +172,49 @@ function wpwm_openai_add_js_to_comment_page() {
     <?php
 }
 add_action('admin_footer-edit-comments.php', 'wpwm_openai_add_js_to_comment_page');
+
+function wpwm_openai_generate_reply() {
+    $comment_text = sanitize_text_field($_POST['comment_text']);
+
+    $openai_api_key = get_option('openai_api_key');
+    $model = get_option('model');
+    $temperature = get_option('temperature');
+    $max_tokens = get_option('max_tokens');
+    $top_p = get_option('top_p');
+    $frequency_penalty = get_option('frequency_penalty');
+    $presence_penalty = get_option('presence_penalty');
+
+    $response = wp_remote_post('https://api.openai.com/v1/chat/completions', [
+        'headers' => [
+            'Authorization' => 'Bearer ' . $openai_api_key,
+            'Content-Type'  => 'application/json',
+        ],
+        'body'    => json_encode([
+            'model'             => $model,
+            'messages'          => [
+                ['role' => 'system', 'content' => 'You are a helpful assistant.'],
+                ['role' => 'user', 'content' => $comment_text]
+            ],
+            'max_tokens'        => $max_tokens,
+            'temperature'       => $temperature,
+            'top_p'             => $top_p,
+            'frequency_penalty' => $frequency_penalty,
+            'presence_penalty'  => $presence_penalty,
+        ]),
+    ]);
+
+    if (is_wp_error($response)) {
+        wp_send_json_error(['message' => $response->get_error_message()]);
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $result = json_decode($body, true);
+
+    if (isset($result['choices'][0]['message']['content'])) {
+        wp_send_json_success(['reply' => $result['choices'][0]['message']['content']]);
+    } else {
+        wp_send_json_error(['message' => 'Failed to generate a reply.']);
+    }
+}
+
+add_action('wp_ajax_wpwm_openai_generate_reply', 'wpwm_openai_generate_reply');
