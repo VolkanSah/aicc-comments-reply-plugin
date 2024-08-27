@@ -3,7 +3,7 @@
  * Plugin Name:       A.I Comments Reply for GPT
  * Plugin URI:        https://aicodecraft.io
  * Description:       Effortlessly manage and respond to comments on your WordPress site with the power of AI using the ChatGPT Comments Reply Plugin
- * Version:           1.1
+ * Version:           1.2
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            S. Volkan Kücükbudak
@@ -15,12 +15,10 @@
  * Domain Path:       /languages
  */
 
-// If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-    die;
+	die;
 }
 
-// Plugin Options and Settings
 function aicc_openai_settings_init() {
     register_setting('aicc_openai_settings', 'openai_api_key');
     register_setting('aicc_openai_settings', 'model');
@@ -93,8 +91,19 @@ function aicc_openai_settings_page() {
                     <td>
                         <select name="model">
                             <option <?php selected($model, 'gpt-3.5-turbo'); ?> value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+                            <option <?php selected($model, 'gpt-3.5-turbo-16k'); ?> value="gpt-3.5-turbo-16k">gpt-3.5-turbo-16k</option>
                             <option <?php selected($model, 'gpt-4'); ?> value="gpt-4">gpt-4</option>
-                            <option <?php selected($model, 'gpt-4-32k'); ?> value="gpt-4-32k">gpt-4-32k</option>
+                            <option <?php selected($model, 'gpt-4-turbo'); ?> value="gpt-4-turbo">gpt-4-turbo</option>
+                            <option <?php selected($model, 'gpt-4-0613'); ?> value="gpt-4-0613">gpt-4-0613</option>
+                            <option <?php selected($model, 'gpt-4-0125-preview'); ?> value="gpt-4-0125-preview">gpt-4-0125-preview</option>
+                            <option <?php selected($model, 'gpt-4-turbo-preview'); ?> value="gpt-4-turbo-preview">gpt-4-turbo-preview</option>
+                            <option <?php selected($model, 'gpt-4o-mini'); ?> value="gpt-4o-mini">gpt-4o-mini</option>
+                            <option <?php selected($model, 'gpt-4o-mini-2024-07-18'); ?> value="gpt-4o-mini-2024-07-18">gpt-4o-mini-2024-07-18</option>
+                            <option <?php selected($model, 'gpt-4-1106-preview'); ?> value="gpt-4-1106-preview">gpt-4-1106-preview</option>
+                            <option <?php selected($model, 'gpt-4o'); ?> value="gpt-4o">gpt-4o</option>
+                            <option <?php selected($model, 'gpt-4o-2024-05-13'); ?> value="gpt-4o-2024-05-13">gpt-4o-2024-05-13</option>
+                            <option <?php selected($model, 'gpt-4o-2024-08-06'); ?> value="gpt-4o-2024-08-06">gpt-4o-2024-08-06</option>
+                            <option <?php selected($model, 'chatgpt-4o-latest'); ?> value="chatgpt-4o-latest">chatgpt-4o-latest</option>
                         </select>
                     </td>
                 </tr>
@@ -132,15 +141,7 @@ function aicc_add_button_to_comment_row_actions($actions, $comment) {
 }
 add_filter('comment_row_actions', 'aicc_add_button_to_comment_row_actions', 10, 2);
 
-// Adds JavaScript code to process OpenAI responses
 function aicc_add_js_to_comment_page() {
-    $openai_api_key = get_option('openai_api_key');
-    $model = get_option('model');
-    $temperature = get_option('temperature');
-    $max_tokens = get_option('max_tokens');
-    $top_p = get_option('top_p');
-    $frequency_penalty = get_option('frequency_penalty');
-    $presence_penalty = get_option('presence_penalty');
     ?>
    <script>
         jQuery(document).ready(function ($) {
@@ -217,6 +218,7 @@ function aicc_generate_reply() {
             'frequency_penalty' => $frequency_penalty,
             'presence_penalty'  => $presence_penalty,
         ]),
+        'timeout' => 30, // Timeout auf 30 Sekunden erhöhen
     ]);
 
     if (is_wp_error($response)) {
@@ -237,6 +239,5 @@ function aicc_generate_reply() {
         wp_send_json_error(['message' => 'Failed to generate a reply.']);
     }
 }
-
 
 add_action('wp_ajax_aicc_generate_reply', 'aicc_generate_reply');
