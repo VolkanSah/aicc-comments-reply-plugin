@@ -1,12 +1,9 @@
-# A.I Comments Reply for GPT (OpenAI) 2.0.0 - WordPress Plugin
-
-### WordPress Plugins by Volkan Sah - Simple codings (Tested and working as of [Date])
-
-![Screenshot](screenshot.png)
+# A.I Comments Reply for GPT (OpenAI) 2.0.0 
+### WordPress Plugins by Volkan Sah - Simple codings (Tested and working as of 27.08.2024)
 
 ## Description
 
-A.I Comments Reply for GPT is a WordPress plugin designed to simplify the management of comments on your site by leveraging OpenAI's GPT models. Unlike other plugins that are often overburdened with unnecessary features and charge for basic functionalities like moderation, this plugin focuses on providing a streamlined and free solution. The plugin adds a "Reply with AICC OpenAI" button to comment actions, enabling automatic, context-aware replies to user comments.
+A.I Comments Reply for GPT is a WordPress plugin designed to simplify the management of comments on your site by leveraging OpenAI's GPT models. Unlike other plugins that are often overburdened with unnecessary features and charge for basic functionalities like moderation, this plugin focuses on providing a streamlined and free solution. The plugin adds a "Reply with AI" button to comment actions, enabling automatic, context-aware replies to user comments.
 
 ## Table of Contents
 - [Installation](#installation)
