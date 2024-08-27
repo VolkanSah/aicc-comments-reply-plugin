@@ -60,7 +60,7 @@ This plugin uses OpenAI's API, which is a third-party service. Please review Ope
 ![Screenshot of Option Page](wpwm_comments_optionpage.png)
 
 ### Comments reply
-![Screenshot of comment view](comments_review.png)
+![Screenshot of comment view](comments_review_2.png)
 
 ## Thank you for your support!
 
