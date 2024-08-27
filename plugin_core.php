@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name:       A.I Comments Reply for GPT
- * Plugin URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/
+ * Plugin URI:        https://aicodecraft.io
  * Description:       Effortlessly manage and respond to comments on your WordPress site with the power of AI using the ChatGPT Comments Reply Plugin
  * Version:           1.1
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            S. Volkan Kücükbudak
- * Author URI:        https://volkansah.github.com
+ * Author URI:        https://aicodecraft.io
  * License:           CC BY 4.0
  * License URI:       https://creativecommons.org/licenses/by/4.0/
  * Update URI:        https://github.com/VolkanSah/ChatGPT-Comments-Reply-WordPress-Plugin/latest.zip
@@ -17,34 +17,34 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 // Plugin Options and Settings
-function wpwm_openai_settings_init() {
-    register_setting('wpwm_openai_settings', 'openai_api_key');
-    register_setting('wpwm_openai_settings', 'model');
-    register_setting('wpwm_openai_settings', 'temperature');
-    register_setting('wpwm_openai_settings', 'max_tokens');
-    register_setting('wpwm_openai_settings', 'top_p');
-    register_setting('wpwm_openai_settings', 'frequency_penalty');
-    register_setting('wpwm_openai_settings', 'presence_penalty');
+function aicc_openai_settings_init() {
+    register_setting('aicc_openai_settings', 'openai_api_key');
+    register_setting('aicc_openai_settings', 'model');
+    register_setting('aicc_openai_settings', 'temperature');
+    register_setting('aicc_openai_settings', 'max_tokens');
+    register_setting('aicc_openai_settings', 'top_p');
+    register_setting('aicc_openai_settings', 'frequency_penalty');
+    register_setting('aicc_openai_settings', 'presence_penalty');
 }
-add_action('admin_init', 'wpwm_openai_settings_init');
+add_action('admin_init', 'aicc_openai_settings_init');
 
-function wpwm_openai_settings() {
+function aicc_openai_settings() {
     add_menu_page(
-        'WPWM OpenAI Comment Reply Settings',
-        'WPWM OpenAI Settings',
+        'AICC OpenAI Comment Reply Settings',
+        'AICC OpenAI Settings',
         'manage_options',
-        'wpwm-openai-comment-reply-settings',
-        'wpwm_openai_settings_page',
+        'aicc-openai-comment-reply-settings',
+        'aicc_openai_settings_page',
         'dashicons-format-chat'
     );
 }
-add_action('admin_menu', 'wpwm_openai_settings');
+add_action('admin_menu', 'aicc_openai_settings');
 
-function wpwm_openai_settings_page() {
+function aicc_openai_settings_page() {
     $openai_api_key = get_option('openai_api_key');
     $model = get_option('model');
     $temperature = get_option('temperature');
@@ -54,16 +54,16 @@ function wpwm_openai_settings_page() {
     $presence_penalty = get_option('presence_penalty');
     ?>
     <div class="wrap">
-        <h1>WPWM OpenAI Comment Reply Settings</h1>
-        <div class="wpwm-openai-info">
-            <h2>About WPWM OpenAI Comment Reply Plugin</h2>
+        <h1>AICC OpenAI Comment Reply Settings</h1>
+        <div class="aicc-openai-info">
+            <h2>About AICC OpenAI Comment Reply Plugin</h2>
             <p>This plugin uses OpenAI's ChatGPT to automatically reply to comments on your WordPress website. It leverages AI technology to generate relevant and helpful responses to your visitors' comments.</p>
 
             <h3>How to use the plugin:</h3>
             <ol>
                 <li>Enter your OpenAI API key in the "OpenAI API Key" field and save the settings.</li>
                 <li>Go to the comments management in your WordPress admin area.</li>
-                <li>In the comment list, you'll see the option "Reply with WPWM OpenAI" under each comment. Click on this option to generate an AI-generated response to the comment.</li>
+                <li>In the comment list, you'll see the option "Reply with AICC OpenAI" under each comment. Click on this option to generate an AI-generated response to the comment.</li>
             </ol>
 
             <h3>Recommended settings:</h3>
@@ -79,8 +79,8 @@ function wpwm_openai_settings_page() {
             <p>These settings have been tested to provide good results with the plugin. However, feel free to adjust them according to your needs and preferences.</p>
         </div>
         <form method="post" action="options.php">
-            <?php settings_fields('wpwm_openai_settings'); ?>
-            <?php do_settings_sections('wpwm_openai_settings'); ?>
+            <?php settings_fields('aicc_openai_settings'); ?>
+            <?php do_settings_sections('aicc_openai_settings'); ?>
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">OpenAI API Key</th>
@@ -126,24 +126,32 @@ function wpwm_openai_settings_page() {
 }
 
 // Adds button to comment row actions
-function wpwm_openai_add_button_to_comment_row_actions($actions, $comment) {
-    $actions['wpwm_openai_reply'] = '<a href="#" class="openai-reply">Reply with A.I</a>';
+function aicc_add_button_to_comment_row_actions($actions, $comment) {
+    $actions['aicc_reply'] = '<a href="#" class="openai-reply">Reply with A.I</a>';
     return $actions;
 }
-add_filter('comment_row_actions', 'wpwm_openai_add_button_to_comment_row_actions', 10, 2);
+add_filter('comment_row_actions', 'aicc_add_button_to_comment_row_actions', 10, 2);
 
-function wpwm_openai_add_js_to_comment_page() {
+// Adds JavaScript code to process OpenAI responses
+function aicc_add_js_to_comment_page() {
+    $openai_api_key = get_option('openai_api_key');
+    $model = get_option('model');
+    $temperature = get_option('temperature');
+    $max_tokens = get_option('max_tokens');
+    $top_p = get_option('top_p');
+    $frequency_penalty = get_option('frequency_penalty');
+    $presence_penalty = get_option('presence_penalty');
     ?>
    <script>
         jQuery(document).ready(function ($) {
             $('.openai-reply').click(function () {
                 var commentId = $(this).closest('tr').attr('id').replace('comment-', '');
                 $('#comment-' + commentId + ' .row-actions .reply button').click();
-                wpwm_openai_reply(commentId);
+                aicc_openai_reply(commentId);
                 return false;
             });
 
-            function wpwm_openai_reply(comment_id) {
+            function aicc_openai_reply(comment_id) {
                 var rowData = $('#inline-' + comment_id);
                 var comment_text = $('textarea.comment', rowData).val();
                 var editRow = $('#replyrow');
@@ -153,7 +161,7 @@ function wpwm_openai_add_js_to_comment_page() {
                     type: "POST",
                     url: ajaxurl,
                     data: {
-                        action: 'wpwm_openai_generate_reply',
+                        action: 'aicc_generate_reply',
                         comment_text: comment_text,
                         comment_id: comment_id,
                     },
@@ -162,8 +170,12 @@ function wpwm_openai_add_js_to_comment_page() {
                             $('#replycontent', editRow).val(response.data.reply);
                             $('#replysubmit .spinner').removeClass('is-active');
                         } else {
+                            console.error('Error: ' + response.data.message);
                             alert('Error: ' + response.data.message);
                         }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
                     }
                 });
             }
@@ -171,18 +183,22 @@ function wpwm_openai_add_js_to_comment_page() {
     </script>
     <?php
 }
-add_action('admin_footer-edit-comments.php', 'wpwm_openai_add_js_to_comment_page');
+add_action('admin_footer-edit-comments.php', 'aicc_add_js_to_comment_page');
 
-function wpwm_openai_generate_reply() {
+function aicc_generate_reply() {
     $comment_text = sanitize_text_field($_POST['comment_text']);
-
     $openai_api_key = get_option('openai_api_key');
     $model = get_option('model');
-    $temperature = get_option('temperature');
-    $max_tokens = get_option('max_tokens');
-    $top_p = get_option('top_p');
-    $frequency_penalty = get_option('frequency_penalty');
-    $presence_penalty = get_option('presence_penalty');
+    $temperature = floatval(get_option('temperature'));
+    $max_tokens = intval(get_option('max_tokens'));
+    $top_p = floatval(get_option('top_p'));
+    $frequency_penalty = floatval(get_option('frequency_penalty'));
+    $presence_penalty = floatval(get_option('presence_penalty'));
+
+    // Log initial data for debugging
+    error_log('AICC Generate Reply Triggered');
+    error_log('Comment Text: ' . $comment_text);
+    error_log('Model: ' . $model);
 
     $response = wp_remote_post('https://api.openai.com/v1/chat/completions', [
         'headers' => [
@@ -204,17 +220,23 @@ function wpwm_openai_generate_reply() {
     ]);
 
     if (is_wp_error($response)) {
+        error_log('Error in OpenAI request: ' . $response->get_error_message());
         wp_send_json_error(['message' => $response->get_error_message()]);
     }
 
     $body = wp_remote_retrieve_body($response);
     $result = json_decode($body, true);
 
+    // Log the response for debugging
+    error_log('OpenAI Response: ' . print_r($result, true));
+
     if (isset($result['choices'][0]['message']['content'])) {
         wp_send_json_success(['reply' => $result['choices'][0]['message']['content']]);
     } else {
+        error_log('Failed to generate a reply.');
         wp_send_json_error(['message' => 'Failed to generate a reply.']);
     }
 }
 
-add_action('wp_ajax_wpwm_openai_generate_reply', 'wpwm_openai_generate_reply');
+
+add_action('wp_ajax_aicc_generate_reply', 'aicc_generate_reply');
