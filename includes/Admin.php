@@ -1,5 +1,4 @@
 <?php
-
 namespace AICC;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -125,3 +124,4 @@ class Admin {
 
     // Similar methods for other fields
 }
+
