@@ -1,4 +1,4 @@
-# A.I Comments Reply for GPT (OpenAI) 2.0.0 
+# A.I Comments Reply with GPT (OpenAI) 2.0.0 
 ### WordPress Plugins by Volkan Sah - Simple codings (Tested and working as of 27.08.2024)
 
 ## Description
