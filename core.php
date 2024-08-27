@@ -1,4 +1,6 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Plugin Name:       AICC - AI Content Commenter
@@ -33,4 +35,3 @@ function aicc_init() {
     AICC\Plugin::get_instance();
 }
 add_action('plugins_loaded', 'aicc_init');
-
