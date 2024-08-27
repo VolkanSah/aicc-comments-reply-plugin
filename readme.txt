@@ -1,4 +1,4 @@
-=== A.I. Comments Reply for GPT ===
+=== A.I. Comments Reply  ===
 Contributors: aicodecraft
 Tags: chatgpt, openai, comment-reply, gpt-4, comment, autoreply, comments reply, comments autoreply, gpt-3.5-turbo, gpt-4-turbo, chatgpt, moderation, ai-comments
 Requires at least: 5.6
@@ -11,7 +11,7 @@ Automatically generates and replies to comments on your WordPress website using 
 
 == DESCRIPTION ==
 
-A.I. Comments Reply for GPT is a lightweight WordPress plugin designed to automatically generate and reply to comments on your website using OpenAI's GPT models, including GPT-4 and GPT-3.5-turbo. Unlike many other plugins, A.I. Comments Reply focuses on essential features without unnecessary bloat and hidden costs. This plugin includes an integrated moderation feature to ensure that comments are appropriate before generating a reply, providing a safer and more responsible AI interaction.
+A.I. Comments Reply is a lightweight WordPress plugin designed to automatically generate and reply to comments on your website using OpenAI's GPT models, including GPT-4 and GPT-3.5-turbo. Unlike many other plugins, A.I. Comments Reply focuses on essential features without unnecessary bloat and hidden costs. This plugin includes an integrated moderation feature to ensure that comments are appropriate before generating a reply, providing a safer and more responsible AI interaction.
 
 *Built-in Moderation*: This plugin includes integrated moderation tools that automatically filter and block inappropriate content before it is processed by the AI, ensuring a safer user experience.
 
