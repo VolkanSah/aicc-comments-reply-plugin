@@ -185,7 +185,6 @@ function aicc_add_js_to_comment_page() {
     <?php
 }
 add_action('admin_footer-edit-comments.php', 'aicc_add_js_to_comment_page');
-
 function aicc_generate_reply() {
     $comment_text = sanitize_text_field($_POST['comment_text']);
     $openai_api_key = get_option('openai_api_key');
@@ -196,11 +195,33 @@ function aicc_generate_reply() {
     $frequency_penalty = floatval(get_option('frequency_penalty'));
     $presence_penalty = floatval(get_option('presence_penalty'));
 
-    // Log initial data for debugging
-    error_log('AICC Generate Reply Triggered');
-    error_log('Comment Text: ' . $comment_text);
-    error_log('Model: ' . $model);
+    // Step 1: Moderation des Kommentars vor der Weiterleitung an die API
+    $moderation_response = wp_remote_post('https://api.openai.com/v1/moderations', [
+        'headers' => [
+            'Authorization' => 'Bearer ' . $openai_api_key,
+            'Content-Type'  => 'application/json',
+        ],
+        'body'    => json_encode([
+            'input' => $comment_text,
+        ]),
+        'timeout' => 30,
+    ]);
 
+    if (is_wp_error($moderation_response)) {
+        error_log('Error in Moderation API request: ' . $moderation_response->get_error_message());
+        wp_send_json_error(['message' => 'Failed to moderate the comment.']);
+    }
+
+    $moderation_body = wp_remote_retrieve_body($moderation_response);
+    $moderation_result = json_decode($moderation_body, true);
+
+    // Check if the comment is flagged
+    if ($moderation_result && isset($moderation_result['results'][0]['flagged']) && $moderation_result['results'][0]['flagged']) {
+        error_log('Comment was flagged by moderation.');
+        wp_send_json_error(['message' => 'The comment was flagged as inappropriate and cannot be processed.']);
+    }
+
+    // Step 2: Wenn der Kommentar genehmigt ist, generiere eine Antwort
     $response = wp_remote_post('https://api.openai.com/v1/chat/completions', [
         'headers' => [
             'Authorization' => 'Bearer ' . $openai_api_key,
@@ -218,7 +239,7 @@ function aicc_generate_reply() {
             'frequency_penalty' => $frequency_penalty,
             'presence_penalty'  => $presence_penalty,
         ]),
-        'timeout' => 30, // Timeout auf 30 Sekunden erhöhen
+        'timeout' => 30,
     ]);
 
     if (is_wp_error($response)) {
@@ -228,9 +249,6 @@ function aicc_generate_reply() {
 
     $body = wp_remote_retrieve_body($response);
     $result = json_decode($body, true);
-
-    // Log the response for debugging
-    error_log('OpenAI Response: ' . print_r($result, true));
 
     if (isset($result['choices'][0]['message']['content'])) {
         wp_send_json_success(['reply' => $result['choices'][0]['message']['content']]);
