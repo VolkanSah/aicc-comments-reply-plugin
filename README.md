@@ -1,8 +1,8 @@
 # A.I Comments Reply with GPT (OpenAI) 2.0.0 
 ###### WordPress Plugins by Volkan Sah - Simple codings (Realesed 27.08.2024)
+![WordPress](https://img.shields.io/badge/WordPress-Compatible-blue.svg)
 ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?&logo=php&logoColor=white)
 ![Version](https://img.shields.io/badge/version-2.0.0-orange.svg)
-![WordPress](https://img.shields.io/badge/WordPress-Compatible-blue.svg)
 [![Stars](https://img.shields.io/github/stars/VolkanSah/aicc-comments-reply)](https://github.com/VolkanSah/aicc-comments-reply) 
 ![Forks](https://img.shields.io/github/forks/VolkanSah/aicc-comments-reply) 
 
