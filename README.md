@@ -74,5 +74,4 @@ If you find this plugin useful, please consider [becoming a 'Sponsor'](https://g
 ### Credits
 
 - [VolkanSah on Github](https://github.com/volkansah)
-- [Developer Site](https://volkansah.github.io)
 
